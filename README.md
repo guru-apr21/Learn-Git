@@ -70,3 +70,14 @@ git rm file2.txt
 ```
 
 This command removes the file from both the working directory and the staging area in one go.
+
+### Renaming or Moving Files
+
+We use standard unix mv command to rename or move files and directories. In git renaming or moving files are two step operation.  
+First we have to modify our working directory and we have to stage two types of changes, an addition and deletion. 
+
+```
+git mv file.txt main.js
+```
+
+This command will apply the changes to both the working directory and the staging area. 
