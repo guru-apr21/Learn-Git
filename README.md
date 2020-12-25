@@ -55,3 +55,18 @@ git commit -am "Learn how to commit without staging the changes."
 ```
 
 By supplying the options flag -a which means all modified files will be committed direct without staging them.
+
+### Removing Files
+
+```console
+git ls-files
+```
+
+When we remove a file from our working directory it still exists in the staging area. This command displays the files in our staging area.  
+To remove a file we have to remove it from both the working directory and as well as from the staging area.
+
+```console
+git rm file2.txt
+```
+
+This command removes the file from both the working directory and the staging area in one go.
