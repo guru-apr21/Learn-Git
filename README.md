@@ -47,3 +47,11 @@ git commit
 ```
 This opens our default code editor with COMMIT_EDITMSG tab open which is stored in our git repository.  
 We add a short description and after a line break we type a long description. When we save the changes and close the window our changes will be committed.
+
+### Skipping the Staging Area
+
+```console
+git commit -am "Learn how to commit without staging the changes."
+```
+
+By supplying the options flag -a which means all modified files will be committed direct without staging them.
