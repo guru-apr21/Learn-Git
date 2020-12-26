@@ -201,7 +201,7 @@ These objects can be
  * Trees(Directories)
  * Tags
 
-## Unstaging files
+### Unstaging files
 
 ```console
 git restore --staged file2.js
@@ -212,7 +212,7 @@ This command makes sure that we don't have any changes in the staging area, all 
 The restore command essentially take copies from the next environment. In case of the staging environment the next environment is the last commit.  
 If we don't have the copy of the file in our repository or in the last commit, git is gonna remove this file from the staging area and take it back to its previous state.
 
-## Discarding local changes
+### Discarding local changes
 
 ```console
 git restore .
@@ -226,3 +226,13 @@ We cannot discard local changes in untracked files because git hasn't been track
 git clean -fd
 ``` 
 We use git clean to remove all untracked files.
+
+### Restoring a file to an earlier version
+
+```console
+git restore --source=HEAD~1 file1.js
+```
+
+There are two options we can undo or revert the last commit or we can restore a file to its previous version.  
+By default git will restore the file from next environment or next area.  
+In this case we want to change the default behaviour and restore the file from the commit before the last one.
