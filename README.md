@@ -142,3 +142,61 @@ a/file1.js is the older copy which we have in the last commit. b/file1.js is the
 Git divide the file into chunks, every chunck has a header that has information which gives you context in this case @@ -1,3 +1,5 @@.  
 
 If we run git diff without any arguments we can see unstaged changes and if we pass --staged we can see the staged changes that are gonna go into next commit.
+
+### Viewing history
+
+```console
+git log
+
+commit 6c950910ae7a3f3d258d34e7d8610785c08f2e99 (HEAD -> master)
+Author: Guru Prakash Ram <69163711+guru-apr21@users.noreply.github.com>
+Date:   Sat Dec 26 12:26:07 2020 +0530
+
+    Remove the bin directory from staging area which is accidentally committed.
+```
+
+This command prints the commit history sorted from the latest to earliest. Git automatically generates a unique 40 characters hexadecimal string.
+
+```console
+git log --reverse --oneline
+
+b0c4389 Initial commit.
+22a51dd Learn how to commit without staging the changes.
+5069f0c Remove unused code.
+```
+This command shows us the short summary of the commits. The unique identifier is shortened to 7 characters. The reverse option sort commit from earliest to latest.
+
+### Viewing a Commit
+
+```console
+git show 6c95091
+```
+We use git show command to see what exactly we have changed in a commit. There are two ways to reference a commit. We can reference a commit using its unique identifier.  
+We don't have to type all the seven characters, we can type fewer characters as long as there is no other commit whose id starts with these characters.  
+
+```console
+git show HEAD~1
+```
+Another way is to use the HEAD pointer. To view the last commit we can type HEAD or to look at the previous commit we type ~ and specify how many steps we want to go back.  
+
+```console
+git show HEAD~1:.gitignore
+```
+This command shows us the exact version stored in this commit. We specify the complete path of the file after the semicolon.
+
+```console
+git ls-tree HEAD~1
+```
+A commit is a complete snapshot of our project. To view all the files and folders in a commit we use git ls-tree command followed by the commit we are interested in.  
+A unique identifier is generated based on the content of the file. In git database we have a object with this id.  
+Files are represented using blobs and directories are represented using trees.
+
+```console
+git show 51912609ec2
+```
+We can view the content of this object using the git show command followed by the id of the object. So using the show command we can view a object in the git's database.  
+These objects can be 
+ * Commits
+ * Blobs(Files)
+ * Trees(Directories)
+ * Tags
