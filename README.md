@@ -200,3 +200,14 @@ These objects can be
  * Blobs(Files)
  * Trees(Directories)
  * Tags
+
+## Unstaging files
+
+```console
+git restore --staged file2.js
+```
+
+To undo git add operation we use git restore command. To restore files in the staging area we use --staged option followed by the file name.  
+This command makes sure that we don't have anu changes in the staging area, all the changes will be in the working directory.  
+The restore command essentially take copies from the next environment. In case of the staging environment the next environment is the last commit.  
+If we don't have the copy of the file in our repository last commit git is gonna remove this file from the staging area and take it back to its previous state.1
