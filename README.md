@@ -81,3 +81,16 @@ git mv file.txt main.js
 ```
 
 This command will apply the changes to both the working directory and the staging area. 
+
+### Ignoring files
+
+To prevent git from adding certain files to the repository we use a special file .gitignore.  
+This file don't have a name and should be placed in the root of the project directory.
+It only works if we add the files to the .gitignore before committing the changes.  
+It doesn't work and git keeps tracking the changes even if we add the file or directory to the .gitignore. To remove the files from staging area  
+
+```console
+git rm --cached -r bin/
+```
+We use git rm command to remove files from both the working directory and as well as from the staging area.  
+By using --cached flag git removes the files only from the staging area.
