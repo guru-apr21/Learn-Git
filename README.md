@@ -207,7 +207,22 @@ These objects can be
 git restore --staged file2.js
 ```
 
-To undo git add operation we use git restore command. To restore files in the staging area we use --staged option followed by the file name.  
-This command makes sure that we don't have anu changes in the staging area, all the changes will be in the working directory.  
+To undo git add operation we use git restore command with --staged option. To restore files in the staging area we use --staged option followed by the file name.  
+This command makes sure that we don't have any changes in the staging area, all the changes will be in the working directory.  
 The restore command essentially take copies from the next environment. In case of the staging environment the next environment is the last commit.  
-If we don't have the copy of the file in our repository last commit git is gonna remove this file from the staging area and take it back to its previous state.1
+If we don't have the copy of the file in our repository or in the last commit, git is gonna remove this file from the staging area and take it back to its previous state.
+
+## Discarding local changes
+
+```console
+git restore .
+```
+
+We can discard the local changes using the restore command.  
+When we execute this command git is going to take the version of the file in the next environment in this case the staging environment.  
+We cannot discard local changes in untracked files because git hasn't been tracking this and git doesn't know where to get the previous version of this file.  
+
+```console
+git clean -fd
+``` 
+We use git clean to remove all untracked files.
