@@ -94,3 +94,12 @@ git rm --cached -r bin/
 ```
 We use git rm command to remove files from both the working directory and as well as from the staging area.  
 By using --cached flag git removes the files only from the staging area.
+
+### Short Status
+
+```console
+git status -s
+MM file1.js
+?? file2.js
+```
+Using this command we can get a shorthand status output. We have two columns. The one in the left represents the staging area and the other represents the working directory.
