@@ -103,3 +103,42 @@ MM file1.js
 ?? file2.js
 ```
 Using this command we can get a shorthand status output. We have two columns. The one in the left represents the staging area and the other represents the working directory.
+
+### Viewing Staged and Unstaged changes
+
+To view the exact lines of code that has been changed we use the diff command. 
+
+```console
+git diff --staged
+git diff
+```
+
+By providing the staged option git compares the files in the staging area with the files in the previous commit.  
+This shows what we have in the staging area that goes into the next commit.  
+Without the staged option it compares the files in the working directory with the files in the staging area.
+
+```console
+git diff --staged
+diff --git a/file1.js b/file1.js
+index badfb70..47c3216 100644
+--- a/file1.js
++++ b/file1.js
+@@ -1,3 +1,5 @@
+ hello
+ world
+ test
++sky
++ocean
+diff --git a/file2.js b/file2.js
+new file mode 100644
+index 0000000..f5e95e7
+--- /dev/null
++++ b/file2.js
+@@ -0,0 +1 @@
++sky
+```
+
+a/file1.js is the older copy which we have in the last commit. b/file1.js is the newer copy in our staging area. We compare two copies of the same file.   
+Git divide the file into chunks, every chunck has a header that has information which gives you context in this case @@ -1,3 +1,5 @@.  
+
+If we run git diff without any arguments we can see unstaged changes and if we pass --staged we can see the staged changes that are gonna go into next commit.
