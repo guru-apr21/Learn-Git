@@ -236,3 +236,13 @@ git restore --source=HEAD~1 file1.js
 There are two options we can undo or revert the last commit or we can restore a file to its previous version.  
 By default git will restore the file from next environment or next area.  
 In this case we want to change the default behaviour and restore the file from the commit before the last one.
+
+## Branching
+
+Branching allows us to diverse from the main land of work and work on something else in isolation.  
+A branch in git is a pointer to a commit. The master branch is a pointer to the last commit in the main line of work.  
+As we make new commits git moves the pointer forward automatically. So it knows what is the latest code in the main line of work i.e, the snapshot stored in this commit. When we create a new branch git creates a new pointer that can be moved around.  
+This pointer is just a tiny file that contains a 40 byte commit id. When we switch to the new branch and make new commits git moves the pointer forward. The master pointer stays where it is. So git knows latest code in each branch.  
+When we move to master git takes the snapshot of the commit that master points to and reset our working directory to that snapshot. We always have single working directory. Using a special pointer called HEAD git knows which branch we are currently working on.  
+This pointer is also another tiny file that contains the name of the branch like master.  
+When we switch to different branch git moves the HEAD pointer and updates the tiny file and writes the name of the target branch.
